@@ -16,6 +16,9 @@ class Students < ActiveRecord::Base
   #   self.count = @count
   # end
   
-
+  # Adding a method to get classes that a student is registered
+  def getClasses
+    classes = Students.where("CWID = ?", self.CWID)
+  end
 
 end
