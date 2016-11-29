@@ -17,8 +17,19 @@ class Students < ActiveRecord::Base
   # end
   
   # Adding a method to get classes that a student is registered
-  def getClasses
-    classes = Students.where("CWID = ?", self.CWID)
+  def getClasses(cwid)
+    classes = Students.where(CWID: cwid).limit(1).pluck(:classes)
+    
+    #check the first item of the results to see if nil or if contains comma's
+    #If it contains commas split to actual array
+    
+    if classes[0].nil?
+      return []
+    elsif classes[0].include?(',')
+      return classes[0].split(',')
+    end
+    
+    return classes
   end
 
 end
