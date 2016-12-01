@@ -16,7 +16,11 @@ ActiveRecord::Schema.define(version: 20151207062110) do
   create_table "professors", force: :cascade do |t|
     t.string "name"
   end
-
+  create_table "log", force: :cascade do |t|
+  t.integer "CWID"
+  t.datetime "timestamp"
+  t.string   "class"
+  end
   create_table "students", force: :cascade do |t|
     t.integer  "CWID"
     t.string   "first_name"
