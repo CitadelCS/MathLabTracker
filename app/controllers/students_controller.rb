@@ -115,7 +115,7 @@ end
       @count = @student.count
        @count = @count + 1
       @student.update_attributes!(:login_date => Date.today)
-      @log.create(:CWID => @cwid, :timestamp => , :class =>)
+      @log.create(:CWID => @cwid, :timestamp => Time.now )#waiting for class implementation to be added
       @student.update_attributes!(:count => @count)
          format.html { render 'login'}
       end
