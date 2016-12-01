@@ -106,25 +106,29 @@ end
     def submit
     @cwid = params[:id]
     @student = Student.where(cwid: @cwid).take
-    if params[:commit] == 'Login'
-      respond_to do |format|
-      if @student.login_date == Date.today
-        format.html { redirect_to @student, notice: 'Sorry, student has already logged in today.' }
-        format.json { render :show, location: @student }
-      else
-      @count = @student.count
-       @count = @count + 1
-      @student.update_attributes!(:login_date => Date.today)
-      @student.update_attributes!(:count => @count)
-         format.html { render 'login'}
+    if @student.nil? 
+      format.html { redirect_to @student, notice: 'Sorry, student has already logged in today.' }
+    else
+      if params[:commit] == 'Login'
+        respond_to do |format|
+        if @student.login_date == Date.today
+        
+          format.json { render :show, location: @student }
+        else
+        @count = @student.count
+        @count = @count + 1
+        @student.update_attributes!(:login_date => Date.today)
+        @student.update_attributes!(:count => @count)
+        format.html { render 'login'}
+        end
+      end
+      elsif params[:commit] == 'Check Hours'
+          render :search
+      end
       end
     end
-    elsif params[:commit] == 'Check Hours'
-        render :search
-    end
-    end
     
-    #professor submit ( edit a student, or delete a student, or delete all students)
+    #prsofessor submit ( edit a student, or delete a student, or delete all students)
     def profs
       @professors = ["Florez", "Moore", "Rudolph", "Trautman", "Verdicchio"]
       if params[:pass] == 'mathisfun' && params[:commit] == 'Delete'
