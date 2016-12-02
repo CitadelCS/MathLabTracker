@@ -272,9 +272,9 @@ Given /the following students exist/ do |students_table|
   end
 end
 
-#These are the steps for the time logs, or at least part of it.
+#These are the steps for the time log, or at least part of it.
 
-Given /the following log exist/ do |log_controller|
+Given /the following logs exist/ do |log_controller|
   log_controller.hashes.each do |log|
     Log.create!(log)
   end
