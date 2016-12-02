@@ -15,8 +15,8 @@ Scenario: A student logs into MathLabTracker
   | 10517555 | William     | Sloane    | Rudolph    | 1     |
   
     Given the following logs exists:
-  | cwid     | class | timestamp                 |
-  | 10519447 | 420   | 2016-11-11T09:20:44+00:00 |
+  | cwid      | timestamp                 |
+  | 10519447  | 2016-11-11T09:20:44+00:00 |
   
   
   Given I am on the home page

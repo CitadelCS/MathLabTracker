@@ -35,8 +35,8 @@ Scenario: A student can log in
   
 
  Given the following logs exists:
-  | CWID     | Timestamp                | Class       |
-  | 10517555 | 2016-11-11T14:20:44-05:00| MATH451     |
+  | CWID     | timestamp                 |
+  | 10519447 | 2016-11-11 T14:20:44-05:00|
   
   
   Given I am on the home page
