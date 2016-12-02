@@ -6,31 +6,33 @@
 # Note that this schema.rb definition is the authoritative source for your
 # database schema. If you need to create the application database on another
 # system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrationsrsp
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207062110) do
+ActiveRecord::Schema.define(version: 20161202011906) do
+
+  create_table "log", force: :cascade do |t|
+    t.integer  "CWID"
+    t.datetime "timestamp"
+    t.string   "class"
+    t.integer  "count",     default: 1
+  end
 
   create_table "professors", force: :cascade do |t|
     t.string "name"
   end
-  create_table "log", force: :cascade do |t|
-    t.integer "CWID"
-    t.datetime "timestamp"
-    t.string "class"
-  end
+
   create_table "students", force: :cascade do |t|
     t.integer  "CWID"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "teacher"
-    t.string   "classes"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "count",      default: 0
-    t.date     "login_date", default: '2016-10-19'
+    t.date     "login_date", default: '2016-12-01'
   end
 
 end
