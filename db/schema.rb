@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202011906) do
+ActiveRecord::Schema.define(version: 20161202015044) do
 
   create_table "log", force: :cascade do |t|
     t.integer  "CWID"
     t.datetime "timestamp"
     t.string   "class"
-    t.integer  "count",     default: 1
   end
 
   create_table "professors", force: :cascade do |t|
