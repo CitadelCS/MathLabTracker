@@ -158,7 +158,7 @@ Then /^(?:|I )should see "([^\"]*)" within "([^\"]*)"$/ do |text, selector|
   end
 end
 
-Then /^(?:|I )should see "([^"]*)"$/ do |text|
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
   if page.respond_to? :should
     page.should have_content(text)
   else
@@ -266,8 +266,16 @@ end
  # end
 #end
   
-  Given /the following students exist/ do |students_table|
+Given /the following students exist/ do |students_table|
   students_table.hashes.each do |student|
    Student.create!(student)
+  end
+end
+
+#These are the steps for the time log, or at least part of it.
+
+Given /the following logs exist/ do |log_controller|
+  log_controller.hashes.each do |log|
+    Log.create!(log)
   end
 end

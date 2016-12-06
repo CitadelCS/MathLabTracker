@@ -108,14 +108,13 @@ end
     @student = Student.where(cwid: @cwid).take
     if params[:commit] == 'Login'
       respond_to do |format|
-      #if @student.login_date == Date.today
-       # format.html { redirect_to @student, notice: 'Sorry, student has already logged in today.' }
-       # format.json { render :show, location: @student }
-      #else
+      if @student.login_date == Date.today
+        format.html { redirect_to @student, notice: 'Sorry, student has already logged in today.' }
+        format.json { render :show, location: @student }
+      else
       @count = @student.count
        @count = @count + 1
       @student.update_attributes!(:login_date => Date.today)
-      @log.create(:CWID => @cwid, :timestamp => Time.now )#waiting for class implementation to be added
       @student.update_attributes!(:count => @count)
          format.html { render 'login'}
       end
@@ -177,7 +176,7 @@ end
     
 
     
-end
+
 # class StudentsController < ApplicationController
 #   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
@@ -356,4 +355,4 @@ end
     
 
     
-# end
+ end

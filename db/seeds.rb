@@ -5,6 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+logs = [{:CWID => 10519447, :timestamp => "2016-11-11 T14:20:44-05:00"}]
+logs.each do |log|
+ Log.create!(log)
+end
+ 
 
 students = [{:CWID => 10519447, :first_name => 'George', :last_name => 'Olivetti', :teacher => 'Moore', :count => 0},
             {:CWID => 10514815, :first_name => 'Kaige', :last_name => 'Lindberg', :teacher => 'Trautman', :count => 0},

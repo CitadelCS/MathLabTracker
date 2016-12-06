@@ -9,12 +9,13 @@ I want to sign out when I leave
 Scenario: A student can log in
 
   Given the following students exist:
-  | CWID     | first_name  | last_name | teacher    | count | classes                 |
-  | 10519447 | George      | Olivetti  | Moore      | 0     | MATH451,MATH131,MATH223 |
-  | 10514815 | Kaige       | Lindberg  | Trautman   | 0     | MATH361,MATH131         |
-  | 10518786 | Joshua      | Terry     | Florez     | 0     | MATH107                 |
-  | 10517115 | Christopher | Landry    | Verdicchio | 0     | MATH106,MATH131         |
-  | 10517555 | William     | Sloane    | Rudolph    | 0     | MATH451,MATH223         |
+  | CWID     | first_name  | last_name | teacher    | count |
+  | 10519447 | George      | Olivetti  | Moore      | 1     |
+  | 10514815 | Kaige       | Lindberg  | Trautman   | 1     |
+  | 10518786 | Joshua      | Terry     | Florez     | 1     |
+  | 10517115 | Christopher | Landry    | Verdicchio | 1     |
+  | 10517555 | William     | Sloane    | Rudolph    | 1     |
+  
 
  
   
@@ -25,16 +26,17 @@ Scenario: A student can log in
   
   Scenario: A student can log out
    Given the following students exist:
-  | CWID     | first_name  | last_name | teacher    | count | classes                 |
-  | 10519447 | George      | Olivetti  | Moore      | 0     | MATH451,MATH131,MATH223 |
-  | 10514815 | Kaige       | Lindberg  | Trautman   | 0     | MATH361,MATH131         |
-  | 10518786 | Joshua      | Terry     | Florez     | 0     | MATH107                 |
-  | 10517115 | Christopher | Landry    | Verdicchio | 0     | MATH106,MATH131         |
-  | 10517555 | William     | Sloane    | Rudolph    | 0     | MATH451,MATH223         |
+  | CWID     | first_name  | last_name | teacher    | count |
+  | 10519447 | George      | Olivetti  | Moore      | 1     |
+  | 10514815 | Kaige       | Lindberg  | Trautman   | 1     |
+  | 10518786 | Joshua      | Terry     | Florez     | 1     |
+  | 10517115 | Christopher | Landry    | Verdicchio | 1     |
+  | 10517555 | William     | Sloane    | Rudolph    | 1     |
+  
 
- Given the following log exists:
-  | CWID     | Class       | Timestamp                |
-  | 10507615 | MATH451     | 2016-11-11T14:20:44-05:00|
+ Given the following logs exists:
+  | CWID     | timestamp                 |
+  | 10519447 | 2016-11-11 T14:20:44-05:00|
   
   
   Given I am on the home page
