@@ -10,6 +10,7 @@ Scenario: User doesn't exist
   When I press "Create New Student"
   Then I should see "New Student"
   When I fill in "10519876" for "Cwid"
+  When I fill in "MATH451,MATH106" for "Classes"
   When I fill in "John" for "First name"
   When I fill in "Smith" for "Last name"
   When I press "Create Student"

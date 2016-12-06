@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202031906) do
+
+ActiveRecord::Schema.define(version: 20161201151249) do
 
   create_table "log", force: :cascade do |t|
     t.integer  "CWID"
@@ -36,7 +37,8 @@ ActiveRecord::Schema.define(version: 20161202031906) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "count",      default: 0
-    t.date     "login_date", default: '2016-12-01'
+    t.date     "login_date", default: '2016-10-19'
+    t.string   "classes"
   end
 
 end
