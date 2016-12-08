@@ -109,7 +109,7 @@ end
     if params[:commit] == 'Login'
       respond_to do |format|
       if @student.login_date == Date.today
-        format.html { redirect_to @student, notice: 'Sorry, student has already logged in today.' }
+        format.html { redirect_to @student, notice: 'Thank you for visiting. Please come again' }
         format.json { render :show, location: @student }
       else
       @count = @student.count
