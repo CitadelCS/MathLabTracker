@@ -103,6 +103,7 @@ end
       @students = Student.where(teacher: @professor)
     end
     
+    
     def submit
     @cwid = params[:id]
     @student = Student.where(cwid: @cwid).take
